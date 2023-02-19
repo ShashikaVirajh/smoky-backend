@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import { PushOperator } from 'mongodb';
 import { UserModel } from '@user/models/user.schema';
+import { PushOperator } from 'mongodb';
+import mongoose from 'mongoose';
 
 class BlockUserService {
   public async blockUser(userId: string, followerId: string): Promise<void> {
@@ -24,7 +24,7 @@ class BlockUserService {
             } as PushOperator<Document>
           }
         }
-      },
+      }
     ]);
   }
 
@@ -49,7 +49,7 @@ class BlockUserService {
             } as PushOperator<Document>
           }
         }
-      },
+      }
     ]);
   }
 }

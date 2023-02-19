@@ -1,13 +1,13 @@
+import { IFollowerData } from '@follower/interfaces/follower.interface';
+import { ServerError } from '@global/helpers/error-handler';
+import { Helpers } from '@global/helpers/helpers';
+import { config } from '@root/config';
 import { BaseCache } from '@service/redis/base.cache';
+import { UserCache } from '@service/redis/user.cache';
+import { IUserDocument } from '@user/interfaces/user.interface';
 import Logger from 'bunyan';
 import { remove } from 'lodash';
 import mongoose from 'mongoose';
-import { config } from '@root/config';
-import { ServerError } from '@global/helpers/error-handler';
-import { IFollowerData } from '@follower/interfaces/follower.interface';
-import { UserCache } from '@service/redis/user.cache';
-import { IUserDocument } from '@user/interfaces/user.interface';
-import { Helpers } from '@global/helpers/helpers';
 
 const log: Logger = config.createLogger('followersCache');
 const userCache: UserCache = new UserCache();

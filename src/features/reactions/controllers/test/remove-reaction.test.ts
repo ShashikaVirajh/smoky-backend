@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
-import { reactionMockRequest, reactionMockResponse } from '@root/mocks/reactions.mock';
-import { authUserPayload } from '@root/mocks/auth.mock';
-import { ReactionCache } from '@service/redis/reaction.cache';
-import { reactionQueue } from '@service/queues/reaction.queue';
 import { Remove } from '@reaction/controllers/remove-reaction';
+import { authUserPayload } from '@root/mocks/auth.mock';
+import { reactionMockRequest, reactionMockResponse } from '@root/mocks/reactions.mock';
+import { reactionQueue } from '@service/queues/reaction.queue';
+import { ReactionCache } from '@service/redis/reaction.cache';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

@@ -1,16 +1,16 @@
+import { Add } from '@chat/controllers/add-chat-message';
+import { authUserPayload } from '@root/mocks/auth.mock';
+import { chatMessage, chatMockRequest, chatMockResponse } from '@root/mocks/chat.mock';
+import { existingUser, existingUserTwo } from '@root/mocks/user.mock';
+import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
+import { chatQueue } from '@service/queues/chat.queue';
+import { emailQueue } from '@service/queues/email.queue';
+import { MessageCache } from '@service/redis/message.cache';
+import { UserCache } from '@service/redis/user.cache';
+import * as chatServer from '@socket/chat';
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import { Server } from 'socket.io';
-import * as chatServer from '@socket/chat';
-import { chatMessage, chatMockRequest, chatMockResponse } from '@root/mocks/chat.mock';
-import { Add } from '@chat/controllers/add-chat-message';
-import { chatQueue } from '@service/queues/chat.queue';
-import { authUserPayload } from '@root/mocks/auth.mock';
-import { MessageCache } from '@service/redis/message.cache';
-import { emailQueue } from '@service/queues/email.queue';
-import { existingUser, existingUserTwo } from '@root/mocks/user.mock';
-import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
-import { UserCache } from '@service/redis/user.cache';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

@@ -1,5 +1,5 @@
-import mongoose, { model, Model, Schema } from 'mongoose';
 import { ICommentDocument } from '@comment/interfaces/comment.interface';
+import mongoose, { Model, model, Schema } from 'mongoose';
 
 const commentSchema: Schema = new Schema({
   postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post', index: true },

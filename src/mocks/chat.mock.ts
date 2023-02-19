@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Response } from 'express';
-import { IJWT } from './auth.mock';
-import mongoose from 'mongoose';
 import { AuthPayload } from '@auth/interfaces/auth.interface';
 import { IMessageData } from '@chat/interfaces/chat.interface';
-import { existingUser, existingUserTwo } from '@root/mocks/user.mock';
-import { ObjectId } from 'mongodb';
 import { IChatList } from '@chat/interfaces/chat.interface';
+import { existingUser, existingUserTwo } from '@root/mocks/user.mock';
+import { Response } from 'express';
+import { ObjectId } from 'mongodb';
+import mongoose from 'mongoose';
+
+import { IJWT } from './auth.mock';
 
 export const chatMockRequest = (sessionData: IJWT, body: IMessage, currentUser?: AuthPayload | null, params?: IChatParams) => ({
   session: sessionData,

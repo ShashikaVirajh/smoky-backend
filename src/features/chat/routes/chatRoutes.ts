@@ -1,10 +1,10 @@
-import express, { Router } from 'express';
-import { authMiddleware } from '@global/helpers/auth-middleware';
 import { Add } from '@chat/controllers/add-chat-message';
-import { Get } from '@chat/controllers/get-chat-message';
-import { Delete } from '@chat/controllers/delete-chat-message';
-import { Update } from '@chat/controllers/update-chat-message';
 import { Message } from '@chat/controllers/add-message-reaction';
+import { Delete } from '@chat/controllers/delete-chat-message';
+import { Get } from '@chat/controllers/get-chat-message';
+import { Update } from '@chat/controllers/update-chat-message';
+import { authMiddleware } from '@global/helpers/auth-middleware';
+import express, { Router } from 'express';
 
 class ChatRoutes {
   private router: Router;

@@ -1,11 +1,11 @@
-import { BaseCache } from '@service/redis/base.cache';
-import { INotificationSettings, ISocialLinks, IUserDocument } from '@user/interfaces/user.interface';
-import Logger from 'bunyan';
-import { indexOf, findIndex } from 'lodash';
-import { config } from '@root/config';
 import { ServerError } from '@global/helpers/error-handler';
 import { Helpers } from '@global/helpers/helpers';
 import { RedisCommandRawReply } from '@redis/client/dist/lib/commands';
+import { config } from '@root/config';
+import { BaseCache } from '@service/redis/base.cache';
+import { INotificationSettings, ISocialLinks, IUserDocument } from '@user/interfaces/user.interface';
+import Logger from 'bunyan';
+import { findIndex,indexOf } from 'lodash';
 
 const log: Logger = config.createLogger('userCache');
 type UserItem = string | ISocialLinks | INotificationSettings;

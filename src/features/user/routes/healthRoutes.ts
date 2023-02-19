@@ -1,9 +1,9 @@
-import express, { Router, Request, Response } from 'express';
-import moment from 'moment';
-import axios from 'axios';
-import { performance } from 'perf_hooks';
-import HTTP_STATUS from 'http-status-codes';
 import { config } from '@root/config';
+import axios from 'axios';
+import express, { Request, Response,Router } from 'express';
+import HTTP_STATUS from 'http-status-codes';
+import moment from 'moment';
+import { performance } from 'perf_hooks';
 
 class HealthRoutes {
   private router: Router;

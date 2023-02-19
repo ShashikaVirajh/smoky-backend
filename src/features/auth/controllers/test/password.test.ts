@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from 'express';
 import { Password } from '@auth/controllers/password';
-import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
 import { CustomError } from '@global/helpers/error-handler';
-import { emailQueue } from '@service/queues/email.queue';
+import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
 import { authService } from '@service/db/auth.service';
+import { emailQueue } from '@service/queues/email.queue';
+import { Request, Response } from 'express';
 
 const WRONG_EMAIL = 'test@email.com';
 const CORRECT_EMAIL = 'manny@me.com';

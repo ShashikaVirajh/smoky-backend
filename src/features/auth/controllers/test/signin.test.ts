@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
-import { Request, Response } from 'express';
-import { CustomError } from '@global/helpers/error-handler';
 import { SignIn } from '@auth/controllers/signin';
+import { CustomError } from '@global/helpers/error-handler';
 import { Helpers } from '@global/helpers/helpers';
+import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
+import { mockExistingUser } from '@root/mocks/user.mock';
 import { authService } from '@service/db/auth.service';
 import { userService } from '@service/db/user.service';
-import { mockExistingUser } from '@root/mocks/user.mock';
+import { Request, Response } from 'express';
 
 const USERNAME = 'Manny';
 const PASSWORD = 'manny1';

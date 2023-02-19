@@ -1,6 +1,6 @@
+import { IUserDocument } from '@user/interfaces/user.interface';
 import { ObjectId } from 'mongodb';
 import mongoose, { Document } from 'mongoose';
-import { IUserDocument } from '@user/interfaces/user.interface';
 
 export interface IFollowers {
   userId: string;

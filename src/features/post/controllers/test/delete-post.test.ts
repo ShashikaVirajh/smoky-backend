@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
+import { Delete } from '@post/controllers/delete-post';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import * as postServer from '@socket/post';
 import { newPost, postMockRequest, postMockResponse } from '@root/mocks/post.mock';
 import { postQueue } from '@service/queues/post.queue';
-import { Delete } from '@post/controllers/delete-post';
 import { PostCache } from '@service/redis/post.cache';
+import * as postServer from '@socket/post';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

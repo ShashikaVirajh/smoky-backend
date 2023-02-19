@@ -1,8 +1,8 @@
+import { IPostDocument } from '@post/interfaces/post.interface';
+import { postService } from '@service/db/post.service';
+import { PostCache } from '@service/redis/post.cache';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
-import { IPostDocument } from '@post/interfaces/post.interface';
-import { PostCache } from '@service/redis/post.cache';
-import { postService } from '@service/db/post.service';
 
 const postCache: PostCache = new PostCache();
 const PAGE_SIZE = 10;

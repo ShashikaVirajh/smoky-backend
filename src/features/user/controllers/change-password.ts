@@ -1,16 +1,16 @@
-import { Request, Response } from 'express';
-import HTTP_STATUS from 'http-status-codes';
-import moment from 'moment';
-import publicIP from 'ip';
-import { userService } from '@service/db/user.service';
-import { IResetPasswordParams } from '@user/interfaces/user.interface';
+import { IAuthDocument } from '@auth/interfaces/auth.interface';
 import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { changePasswordSchema } from '@user/schemes/info';
 import { BadRequestError } from '@global/helpers/error-handler';
 import { authService } from '@service/db/auth.service';
-import { IAuthDocument } from '@auth/interfaces/auth.interface';
+import { userService } from '@service/db/user.service';
 import { resetPasswordTemplate } from '@service/emails/templates/reset-password/reset-password-template';
 import { emailQueue } from '@service/queues/email.queue';
+import { IResetPasswordParams } from '@user/interfaces/user.interface';
+import { changePasswordSchema } from '@user/schemes/info';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
+import publicIP from 'ip';
+import moment from 'moment';
 
 export class Update {
   @joiValidation(changePasswordSchema)

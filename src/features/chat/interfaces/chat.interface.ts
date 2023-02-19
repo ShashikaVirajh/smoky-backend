@@ -1,6 +1,6 @@
-import mongoose, { Document } from 'mongoose';
 import { AuthPayload } from '@auth/interfaces/auth.interface';
 import { IReaction } from '@reaction/interfaces/reaction.interface';
+import mongoose, { Document } from 'mongoose';
 
 export interface IMessageDocument extends Document {
   _id: mongoose.Types.ObjectId;

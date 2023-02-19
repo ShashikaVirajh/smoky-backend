@@ -1,20 +1,20 @@
-import { ObjectId } from 'mongodb';
-import { Request, Response } from 'express';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { signupSchema } from '@auth/schemes/signup';
 import { IAuthDocument, ISignUpData } from '@auth/interfaces/auth.interface';
-import { authService } from '@service/db/auth.service';
-import { Helpers } from '@global/helpers/helpers';
-import { UploadApiResponse } from 'cloudinary';
+import { signupSchema } from '@auth/schemes/signup';
+import { joiValidation } from '@global/decorators/joi-validation.decorators';
 import { uploads } from '@global/helpers/cloudinary-upload';
-import HTTP_STATUS from 'http-status-codes';
-import { IUserDocument } from '@user/interfaces/user.interface';
-import { UserCache } from '@service/redis/user.cache';
-import JWT from 'jsonwebtoken';
+import { BadRequestError } from '@global/helpers/error-handler';
+import { Helpers } from '@global/helpers/helpers';
+import { config } from '@root/config';
+import { authService } from '@service/db/auth.service';
 import { authQueue } from '@service/queues/auth.queue';
 import { userQueue } from '@service/queues/user.queue';
-import { config } from '@root/config';
-import { BadRequestError } from '@global/helpers/error-handler';
+import { UserCache } from '@service/redis/user.cache';
+import { IUserDocument } from '@user/interfaces/user.interface';
+import { UploadApiResponse } from 'cloudinary';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
+import JWT from 'jsonwebtoken';
+import { ObjectId } from 'mongodb';
 
 const userCache: UserCache = new UserCache();
 

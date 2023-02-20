@@ -12,20 +12,23 @@ export interface IPostDocument extends Document {
   post: string;
   bgColor: string;
   commentsCount: number;
-  imgVersion?: string;
-  imgId?: string;
   feelings?: string;
   gifUrl?: string;
   privacy?: string;
   reactions?: IReactions;
+  imgVersion?: string;
+  imgId?: string;
+  videoId?: string;
+  videoVersion?: string;
   createdAt?: Date;
 }
 
 export interface IGetPostsQuery {
   _id?: ObjectId | string;
   username?: string;
-  imgId?: string;
   gifUrl?: string;
+  imgId?: string;
+  videoId?: string;
 }
 
 export interface ISavePostToCache {

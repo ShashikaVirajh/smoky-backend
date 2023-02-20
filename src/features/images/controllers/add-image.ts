@@ -1,16 +1,16 @@
+import { joiValidation } from '@global/decorators/joi-validation.decorators';
+import { uploads } from '@global/helpers/cloudinary-upload';
+import { BadRequestError } from '@global/helpers/error-handler';
+import { Helpers } from '@global/helpers/helpers';
+import { IBgUploadResponse } from '@image/interfaces/image.interface';
+import { addImageSchema } from '@image/schemes/images';
+import { imageQueue } from '@service/queues/image.queue';
+import { UserCache } from '@service/redis/user.cache';
+import { socketIOImageObject } from '@socket/image';
+import { IUserDocument } from '@user/interfaces/user.interface';
+import { UploadApiResponse } from 'cloudinary';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
-import { UserCache } from '@service/redis/user.cache';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { addImageSchema } from '@image/schemes/images';
-import { uploads } from '@global/helpers/cloudinary-upload';
-import { UploadApiResponse } from 'cloudinary';
-import { BadRequestError } from '@global/helpers/error-handler';
-import { IUserDocument } from '@user/interfaces/user.interface';
-import { socketIOImageObject } from '@socket/image';
-import { imageQueue } from '@service/queues/image.queue';
-import { IBgUploadResponse } from '@image/interfaces/image.interface';
-import { Helpers } from '@global/helpers/helpers';
 
 const userCache: UserCache = new UserCache();
 

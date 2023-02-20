@@ -1,18 +1,18 @@
-import Queue, { Job } from 'bull';
-import Logger from 'bunyan';
+import { IAuthJob } from '@auth/interfaces/auth.interface';
 import { createBullBoard } from '@bull-board/api';
 import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
-import { config } from '@root/config';
-import { IAuthJob } from '@auth/interfaces/auth.interface';
-import { IEmailJob, IUserJob } from '@user/interfaces/user.interface';
-import { IPostJobData } from '@post/interfaces/post.interface';
-import { IReactionJob } from '@reaction/interfaces/reaction.interface';
+import { IChatJobData, IMessageData } from '@chat/interfaces/chat.interface';
 import { ICommentJob } from '@comment/interfaces/comment.interface';
 import { IBlockedUserJobData, IFollowerJobData } from '@follower/interfaces/follower.interface';
-import { INotificationJobData } from '@notification/interfaces/notification.interface';
 import { IFileImageJobData } from '@image/interfaces/image.interface';
-import { IChatJobData, IMessageData } from '@chat/interfaces/chat.interface';
+import { INotificationJobData } from '@notification/interfaces/notification.interface';
+import { IPostJobData } from '@post/interfaces/post.interface';
+import { IReactionJob } from '@reaction/interfaces/reaction.interface';
+import { config } from '@root/config';
+import { IEmailJob, IUserJob } from '@user/interfaces/user.interface';
+import Queue, { Job } from 'bull';
+import Logger from 'bunyan';
 
 type IBaseJobData =
   | IAuthJob

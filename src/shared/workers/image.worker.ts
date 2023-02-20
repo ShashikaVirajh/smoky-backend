@@ -1,7 +1,7 @@
-import { DoneCallback, Job } from 'bull';
-import Logger from 'bunyan';
 import { config } from '@root/config';
 import { imageService } from '@service/db/image.service';
+import { DoneCallback, Job } from 'bull';
+import Logger from 'bunyan';
 
 const log: Logger = config.createLogger('imageWorker');
 

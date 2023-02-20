@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from 'express';
-import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
-import { Update } from '@user/controllers/change-password';
 import { CustomError } from '@global/helpers/error-handler';
+import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
 import { existingUser } from '@root/mocks/user.mock';
-import { emailQueue } from '@service/queues/email.queue';
-import { userService } from '@service/db/user.service';
 import { authService } from '@service/db/auth.service';
+import { userService } from '@service/db/user.service';
+import { emailQueue } from '@service/queues/email.queue';
+import { Update } from '@user/controllers/change-password';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

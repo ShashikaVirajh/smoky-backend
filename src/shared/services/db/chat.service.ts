@@ -1,7 +1,7 @@
 import { IMessageData } from '@chat/interfaces/chat.interface';
 import { IConversationDocument } from '@chat/interfaces/conversation.interface';
-import { ConversationModel } from '@chat/models/conversation.schema';
 import { MessageModel } from '@chat/models/chat.schema';
+import { ConversationModel } from '@chat/models/conversation.schema';
 import { ObjectId } from 'mongodb';
 
 class ChatService {

@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
-import { ObjectId } from 'mongodb';
-import HTTP_STATUS from 'http-status-codes';
-import mongoose from 'mongoose';
-import { FollowerCache } from '@service/redis/follower.cache';
 import { IFollowerData } from '@follower/interfaces/follower.interface';
 import { followerService } from '@service/db/follower.service';
+import { FollowerCache } from '@service/redis/follower.cache';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
+import { ObjectId } from 'mongodb';
+import mongoose from 'mongoose';
 
 const followerCache: FollowerCache = new FollowerCache();
 

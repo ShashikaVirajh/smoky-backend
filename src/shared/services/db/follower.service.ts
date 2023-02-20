@@ -1,17 +1,17 @@
-import { FollowerModel } from '@follower/models/follower.schema';
-import { UserModel } from '@user/models/user.schema';
-import { ObjectId, BulkWriteResult } from 'mongodb';
-import mongoose, { Query } from 'mongoose';
 import { IFollowerData, IFollowerDocument } from '@follower/interfaces/follower.interface';
-import { IQueryDeleted, IQueryComplete } from '@post/interfaces/post.interface';
-import { IUserDocument } from '@user/interfaces/user.interface';
+import { FollowerModel } from '@follower/models/follower.schema';
 import { INotificationDocument, INotificationTemplate } from '@notification/interfaces/notification.interface';
 import { NotificationModel } from '@notification/models/notification.schema';
-import { socketIONotificationObject } from '@socket/notification';
+import { IQueryComplete,IQueryDeleted } from '@post/interfaces/post.interface';
 import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
 import { emailQueue } from '@service/queues/email.queue';
 import { UserCache } from '@service/redis/user.cache';
+import { socketIONotificationObject } from '@socket/notification';
+import { IUserDocument } from '@user/interfaces/user.interface';
+import { UserModel } from '@user/models/user.schema';
 import { map } from 'lodash';
+import { BulkWriteResult,ObjectId } from 'mongodb';
+import mongoose, { Query } from 'mongoose';
 
 const userCache: UserCache = new UserCache();
 

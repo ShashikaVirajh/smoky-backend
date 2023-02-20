@@ -1,5 +1,5 @@
-import mongoose, { Model, model, Schema } from 'mongoose';
 import { IConversationDocument } from '@chat/interfaces/conversation.interface';
+import mongoose, { Model, model, Schema } from 'mongoose';
 
 const conversationSchema: Schema = new Schema({
   senderId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

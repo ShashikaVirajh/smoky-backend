@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
-import * as imageServer from '@socket/image';
-import { imagesMockRequest, imagesMockResponse } from '@root/mocks/image.mock';
-import { Add } from '@image/controllers/add-image';
+import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
 import { CustomError } from '@global/helpers/error-handler';
+import { Add } from '@image/controllers/add-image';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import { UserCache } from '@service/redis/user.cache';
+import { imagesMockRequest, imagesMockResponse } from '@root/mocks/image.mock';
 import { existingUser } from '@root/mocks/user.mock';
 import { imageQueue } from '@service/queues/image.queue';
-import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
+import { UserCache } from '@service/redis/user.cache';
+import * as imageServer from '@socket/image';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

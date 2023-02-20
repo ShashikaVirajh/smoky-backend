@@ -1,17 +1,17 @@
-import { Application } from 'express';
 import { authRoutes } from '@auth/routes/authRoutes';
-import { serverAdapter } from '@service/queues/base.queue';
 import { currentUserRoutes } from '@auth/routes/currentRoutes';
-import { authMiddleware } from '@global/helpers/auth-middleware';
-import { postRoutes } from '@post/routes/postRoutes';
-import { reactionRoutes } from '@reaction/routes/reactionRoutes';
+import { chatRoutes } from '@chat/routes/chatRoutes';
 import { commentRoutes } from '@comment/routes/commentRoutes';
 import { followerRoutes } from '@follower/routes/followerRoutes';
-import { notificationRoutes } from '@notification/routes/notificationRoutes';
+import { authMiddleware } from '@global/helpers/auth-middleware';
 import { imageRoutes } from '@image/routes/imageRoutes';
-import { chatRoutes } from '@chat/routes/chatRoutes';
-import { userRoutes } from '@user/routes/userRoutes';
+import { notificationRoutes } from '@notification/routes/notificationRoutes';
+import { postRoutes } from '@post/routes/postRoutes';
+import { reactionRoutes } from '@reaction/routes/reactionRoutes';
+import { serverAdapter } from '@service/queues/base.queue';
 import { healthRoutes } from '@user/routes/healthRoutes';
+import { userRoutes } from '@user/routes/userRoutes';
+import { Application } from 'express';
 
 const BASE_PATH = '/api/v1';
 

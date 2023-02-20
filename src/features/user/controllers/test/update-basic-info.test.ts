@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
-import { authUserPayload, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
-import { Server } from 'socket.io';
+import { authMockRequest, authMockResponse,authUserPayload } from '@root/mocks/auth.mock';
+import { userQueue } from '@service/queues/user.queue';
+import { UserCache } from '@service/redis/user.cache';
 import * as userServer from '@socket/user';
 import { Edit } from '@user/controllers/update-basic-info';
-import { UserCache } from '@service/redis/user.cache';
-import { userQueue } from '@service/queues/user.queue';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

@@ -1,31 +1,41 @@
-import dotenv from 'dotenv';
 import bunyan from 'bunyan';
 import cloudinary from 'cloudinary';
+import dotenv from 'dotenv';
 
 dotenv.config({});
 
 class Config {
+  public NODE_ENV: string | undefined;
+  public SERVER_PORT: string | undefined;
+  public CLIENT_URL: string | undefined;
   public DATABASE_URL: string | undefined;
+
   public ACCESS_TOKEN_SECRET: string | undefined;
   public ACCESS_TOKEN_TTL: string | undefined;
+
   public PASSWORD_RESET_TOKEN_SECRET: string | undefined;
   public PASSWORD_RESET_TOKEN_TTL: string | undefined;
-  public NODE_ENV: string | undefined;
+
   public SECRET_KEY_ONE: string | undefined;
   public SECRET_KEY_TWO: string | undefined;
-  public CLIENT_URL: string | undefined;
+
   public REDIS_HOST: string | undefined;
+
   public CLOUDINARY_NAME: string | undefined;
   public CLOUDINARY_API_KEY: string | undefined;
   public CLOUDINARY_API_SECRET: string | undefined;
+
   public SENDER_EMAIL: string | undefined;
   public SENDER_EMAIL_PASSWORD: string | undefined;
+
   public SENDGRID_API_KEY: string | undefined;
   public SENDGRID_SENDER: string | undefined;
+
   public EC2_URL: string | undefined;
 
   constructor() {
     this.NODE_ENV = process.env.NODE_ENV || '';
+    this.SERVER_PORT = process.env.SERVER_PORT || '';
     this.CLIENT_URL = process.env.CLIENT_URL || '';
     this.DATABASE_URL = process.env.DATABASE_URL || process.env.DATABASE_URL;
 

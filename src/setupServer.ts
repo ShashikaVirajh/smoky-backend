@@ -1,27 +1,27 @@
-import { Application, json, urlencoded, Response, Request, NextFunction } from 'express';
-import http from 'http';
-import cors from 'cors';
-import helmet from 'helmet';
-import hpp from 'hpp';
-import compression from 'compression';
-import cookieSession from 'cookie-session';
-import HTTP_STATUS from 'http-status-codes';
-import { Server } from 'socket.io';
-import { createClient } from 'redis';
-import { createAdapter } from '@socket.io/redis-adapter';
-import Logger from 'bunyan';
 import 'express-async-errors';
+
+import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
 import { config } from '@root/config';
 import applicationRoutes from '@root/routes';
-import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
-import { SocketIOPostHandler } from '@socket/post';
-import { SocketIOFollowerHandler } from '@socket/follower';
-import { SocketIOUserHandler } from '@socket/user';
-import { SocketIONotificationHandler } from '@socket/notification';
-import { SocketIOImageHandler } from '@socket/image';
+import { createAdapter } from '@socket.io/redis-adapter';
 import { SocketIOChatHandler } from '@socket/chat';
+import { SocketIOFollowerHandler } from '@socket/follower';
+import { SocketIOImageHandler } from '@socket/image';
+import { SocketIONotificationHandler } from '@socket/notification';
+import { SocketIOPostHandler } from '@socket/post';
+import { SocketIOUserHandler } from '@socket/user';
+import Logger from 'bunyan';
+import compression from 'compression';
+import cookieSession from 'cookie-session';
+import cors from 'cors';
+import { Application, json, NextFunction,Request, Response, urlencoded } from 'express';
+import helmet from 'helmet';
+import hpp from 'hpp';
+import http from 'http';
+import HTTP_STATUS from 'http-status-codes';
+import { createClient } from 'redis';
+import { Server } from 'socket.io';
 
-const SERVER_PORT = 8000;
 const log: Logger = config.createLogger('server');
 
 export class ChattyServer {
@@ -111,18 +111,19 @@ export class ChattyServer {
 
   private startHttpServer(httpServer: http.Server): void {
     log.info(`Server has started with process ${process.pid}`);
-    httpServer.listen(SERVER_PORT, () => {
-      log.info(`Server running on port ${SERVER_PORT}`);
+
+    httpServer.listen(config.SERVER_PORT, () => {
+      log.info(`Server running on port ${config.SERVER_PORT}`);
     });
   }
 
   private socketIOConnections(io: Server): void {
-    const postSocketHandler: SocketIOPostHandler = new SocketIOPostHandler(io);
-    const followerSocketHandler: SocketIOFollowerHandler = new SocketIOFollowerHandler(io);
-    const userSocketHandler: SocketIOUserHandler = new SocketIOUserHandler(io);
-    const chatSocketHandler: SocketIOChatHandler = new SocketIOChatHandler(io);
-    const notificationSocketHandler: SocketIONotificationHandler = new SocketIONotificationHandler();
-    const imageSocketHandler: SocketIOImageHandler = new SocketIOImageHandler();
+    const postSocketHandler = new SocketIOPostHandler(io);
+    const followerSocketHandler = new SocketIOFollowerHandler(io);
+    const userSocketHandler = new SocketIOUserHandler(io);
+    const chatSocketHandler = new SocketIOChatHandler(io);
+    const notificationSocketHandler = new SocketIONotificationHandler();
+    const imageSocketHandler = new SocketIOImageHandler();
 
     postSocketHandler.listen();
     followerSocketHandler.listen();

@@ -1,16 +1,16 @@
-import { Request, Response } from 'express';
-import HTTP_STATUS from 'http-status-codes';
+import { IFollowerData } from '@follower/interfaces/follower.interface';
+import { Helpers } from '@global/helpers/helpers';
+import { IPostDocument } from '@post/interfaces/post.interface';
+import { followerService } from '@service/db/follower.service';
+import { postService } from '@service/db/post.service';
+import { userService } from '@service/db/user.service';
 import { FollowerCache } from '@service/redis/follower.cache';
 import { PostCache } from '@service/redis/post.cache';
 import { UserCache } from '@service/redis/user.cache';
 import { IAllUsers, IUserDocument } from '@user/interfaces/user.interface';
-import { userService } from '@service/db/user.service';
-import { IFollowerData } from '@follower/interfaces/follower.interface';
-import { followerService } from '@service/db/follower.service';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
 import mongoose from 'mongoose';
-import { Helpers } from '@global/helpers/helpers';
-import { IPostDocument } from '@post/interfaces/post.interface';
-import { postService } from '@service/db/post.service';
 
 const PAGE_SIZE = 12;
 

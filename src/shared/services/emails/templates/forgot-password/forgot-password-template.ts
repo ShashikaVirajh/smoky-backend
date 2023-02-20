@@ -1,5 +1,5 @@
-import fs from 'fs';
 import ejs from 'ejs';
+import fs from 'fs';
 
 class ForgotPasswordTemplate {
   public passwordResetTemplate(username: string, resetLink: string): string {

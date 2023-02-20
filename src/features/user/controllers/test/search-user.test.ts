@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
-import { chatMockRequest, chatMockResponse } from '@root/mocks/chat.mock';
 import { authUserPayload } from '@root/mocks/auth.mock';
+import { chatMockRequest, chatMockResponse } from '@root/mocks/chat.mock';
 import { searchedUserMock } from '@root/mocks/user.mock';
-import { Search } from '@user/controllers/search-user';
 import { userService } from '@service/db/user.service';
+import { Search } from '@user/controllers/search-user';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

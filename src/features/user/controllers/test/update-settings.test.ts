@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import { authUserPayload, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
-import { UpdateSettings } from '@user/controllers/update-settings';
+import { authMockRequest, authMockResponse,authUserPayload } from '@root/mocks/auth.mock';
 import { userQueue } from '@service/queues/user.queue';
 import { UserCache } from '@service/redis/user.cache';
+import { UpdateSettings } from '@user/controllers/update-settings';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

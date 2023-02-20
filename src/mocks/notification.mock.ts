@@ -1,6 +1,7 @@
 import { AuthPayload } from '@auth/interfaces/auth.interface';
 import { INotificationDocument } from '@notification/interfaces/notification.interface';
 import { Response } from 'express';
+
 import { IJWT } from './auth.mock';
 
 export const notificationMockRequest = (sessionData: IJWT, currentUser?: AuthPayload | null, params?: IParams) => ({

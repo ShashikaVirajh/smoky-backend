@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
+import { Update } from '@notification/controllers/update-notification';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import * as notificationServer from '@socket/notification';
 import { notificationMockRequest, notificationMockResponse } from '@root/mocks/notification.mock';
 import { notificationQueue } from '@service/queues/notification.queue';
-import { Update } from '@notification/controllers/update-notification';
+import * as notificationServer from '@socket/notification';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

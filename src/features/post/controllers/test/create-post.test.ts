@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
+import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
+import { CustomError } from '@global/helpers/error-handler';
+import { Create } from '@post/controllers/create-post';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import * as postServer from '@socket/post';
 import { newPost, postMockRequest, postMockResponse } from '@root/mocks/post.mock';
 import { postQueue } from '@service/queues/post.queue';
-import { Create } from '@post/controllers/create-post';
 import { PostCache } from '@service/redis/post.cache';
-import { CustomError } from '@global/helpers/error-handler';
-import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
+import * as postServer from '@socket/post';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

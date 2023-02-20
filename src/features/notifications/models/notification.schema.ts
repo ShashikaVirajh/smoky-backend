@@ -1,6 +1,6 @@
-import { INotificationDocument, INotification } from '@notification/interfaces/notification.interface';
+import { INotification,INotificationDocument } from '@notification/interfaces/notification.interface';
 import { notificationService } from '@service/db/notification.service';
-import mongoose, { model, Model, Schema } from 'mongoose';
+import mongoose, { Model, model, Schema } from 'mongoose';
 
 const notificationSchema: Schema = new Schema({
   userTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User', index: true },

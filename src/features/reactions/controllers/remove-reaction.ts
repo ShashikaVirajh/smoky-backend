@@ -1,8 +1,8 @@
+import { IReactionJob } from '@reaction/interfaces/reaction.interface';
+import { reactionQueue } from '@service/queues/reaction.queue';
+import { ReactionCache } from '@service/redis/reaction.cache';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
-import { IReactionJob } from '@reaction/interfaces/reaction.interface';
-import { ReactionCache } from '@service/redis/reaction.cache';
-import { reactionQueue } from '@service/queues/reaction.queue';
 
 const reactionCache: ReactionCache = new ReactionCache();
 

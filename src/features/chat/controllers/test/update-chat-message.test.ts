@@ -1,13 +1,13 @@
-import { Request, Response } from 'express';
-import { authUserPayload } from '@root/mocks/auth.mock';
 import { Update } from '@chat/controllers/update-chat-message';
-import { Server } from 'socket.io';
-import * as chatServer from '@socket/chat';
+import { authUserPayload } from '@root/mocks/auth.mock';
 import { chatMockRequest, chatMockResponse } from '@root/mocks/chat.mock';
-import { existingUser } from '@root/mocks/user.mock';
-import { MessageCache } from '@service/redis/message.cache';
-import { chatQueue } from '@service/queues/chat.queue';
 import { messageDataMock } from '@root/mocks/chat.mock';
+import { existingUser } from '@root/mocks/user.mock';
+import { chatQueue } from '@service/queues/chat.queue';
+import { MessageCache } from '@service/redis/message.cache';
+import * as chatServer from '@socket/chat';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

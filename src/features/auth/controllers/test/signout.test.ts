@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
-import { authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
 import { SignOut } from '@auth/controllers/signout';
+import { authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
+import { Request, Response } from 'express';
 
 const USERNAME = 'Manny';
 const PASSWORD = 'manny1';

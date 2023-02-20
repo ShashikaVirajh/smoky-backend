@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
+import { Get } from '@post/controllers/get-posts';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { newPost, postMockData, postMockRequest, postMockResponse } from '@root/mocks/post.mock';
-import { PostCache } from '@service/redis/post.cache';
-import { Get } from '@post/controllers/get-posts';
 import { postService } from '@service/db/post.service';
+import { PostCache } from '@service/redis/post.cache';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
-import mongoose from 'mongoose';
+import { Get } from '@follower/controllers/get-followers';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { followersMockRequest, followersMockResponse, mockFollowerData } from '@root/mocks/followers.mock';
-import { FollowerCache } from '@service/redis/follower.cache';
-import { Get } from '@follower/controllers/get-followers';
-import { followerService } from '@service/db/follower.service';
 import { existingUserTwo } from '@root/mocks/user.mock';
+import { followerService } from '@service/db/follower.service';
+import { FollowerCache } from '@service/redis/follower.cache';
+import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

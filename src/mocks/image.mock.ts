@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { IFileImageDocument } from '@image/interfaces/image.interface';
 import { Response } from 'express';
 import mongoose from 'mongoose';

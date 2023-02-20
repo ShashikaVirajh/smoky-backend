@@ -1,4 +1,4 @@
-import { AuthModel } from '@features/auth/models/auth.model';
+import { AuthModel } from '@features/auth/auth.model';
 import { followerService } from '@service/db/follower.service';
 import { IBasicInfo, INotificationSettings, ISearchUser, ISocialLinks, IUserDocument } from '@user/interfaces/user.interface';
 import { UserModel } from '@user/models/user.schema';

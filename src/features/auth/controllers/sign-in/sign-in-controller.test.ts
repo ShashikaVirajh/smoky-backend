@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { authService } from '@features/auth/auth.service';
 import { SignInController } from '@features/auth/controllers/sign-in/sign-in.controller';
-import { authService } from '@features/auth/service/auth.service';
 import { CustomError } from '@library/error-handler.library';
 import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
 import { mergedAuthAndUserData } from '@root/mocks/user.mock';

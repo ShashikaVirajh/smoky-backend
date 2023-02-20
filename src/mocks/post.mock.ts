@@ -1,4 +1,4 @@
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { IPostDocument } from '@post/interfaces/post.interface';
 import { existingUser } from '@root/mocks/user.mock';
 import { Response } from 'express';

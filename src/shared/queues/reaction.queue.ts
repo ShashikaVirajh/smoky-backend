@@ -1,5 +1,5 @@
 import { ReactionQueueJobs } from '@enums';
-import { IReactionJob } from '@features/reaction/reaction.interfaces';
+import { IReactionJob } from '@features/reactions/interfaces/reaction.interface';
 import { BaseQueue } from '@shared/queues/base.queue';
 import { reactionWorker } from '@shared/workers/reaction.worker';
 

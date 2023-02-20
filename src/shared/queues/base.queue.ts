@@ -1,7 +1,7 @@
 import { createBullBoard } from '@bull-board/api';
 import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
-import { IAuthJob } from '@features/auth/interfaces/auth.interfaces';
+import { IAuthJob } from '@features/auth/auth.interfaces';
 import { IPostJobData } from '@features/post/interfaces/post.interface';
 import { IReactionJob } from '@features/reactions/interfaces/reaction.interface';
 import { IEmailJob } from '@features/user/interfaces/user.interface';

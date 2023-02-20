@@ -1,7 +1,7 @@
 import { AuthQueueJobs, UserQueueJobs } from '@enums';
-import { ISignUpData } from '@features/auth/interfaces/auth.interfaces';
-import { authService } from '@features/auth/service/auth.service';
-import { signUpSchema } from '@features/auth/validations/auth.validations';
+import { ISignUpData } from '@features/auth/auth.interfaces';
+import { authService } from '@features/auth/auth.service';
+import { signUpSchema } from '@features/auth/auth.validations';
 import { uploadImage } from '@library/cloudinary.library';
 import { BadRequestError } from '@library/error-handler.library';
 import { TokenManager } from '@library/token-manager.library';

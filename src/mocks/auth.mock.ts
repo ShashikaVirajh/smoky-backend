@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { AuthPayload, IAuthDocument } from '@features/auth/interfaces/auth.interfaces';
+import { AuthPayload, IAuthDocument } from '@features/auth/auth.interfaces';
 import { Response } from 'express';
 
 export const authMockRequest = (sessionData: IJWT, body: IAuthMock, currentUser?: AuthPayload | null, params?: any) => ({

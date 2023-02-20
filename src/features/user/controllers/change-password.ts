@@ -1,7 +1,7 @@
-import { IAuthDocument } from '@features/auth/interfaces/auth.interfaces';
+import { IAuthDocument } from '@features/auth/auth.interfaces';
 import { BadRequestError } from '@library/error-handler.library';
 import { joiValidation } from '@library/validation.library';
-import { authService } from '@service/db/auth.service';
+import { authService } from '@features/auth/auth.service';
 import { userService } from '@service/db/user.service';
 import { resetPasswordTemplate } from '@service/emails/templates/reset-password/reset-password-template';
 import { emailQueue } from '@service/queues/email.queue';

@@ -1,4 +1,4 @@
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { IReaction } from '@reaction/interfaces/reaction.interface';
 import mongoose, { Document } from 'mongoose';
 

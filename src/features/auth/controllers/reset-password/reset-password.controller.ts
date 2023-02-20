@@ -1,6 +1,6 @@
 import { EmailTypes } from '@enums';
-import { authService } from '@features/auth/service/auth.service';
-import { resetPasswordSchema } from '@features/auth/validations/auth.validations';
+import { authService } from '@features/auth/auth.service';
+import { resetPasswordSchema } from '@features/auth/auth.validations';
 import { IResetPasswordParams } from '@features/user/interfaces/user.interface';
 import { BadRequestError } from '@library/error-handler.library';
 import { joiValidation } from '@library/validation.library';

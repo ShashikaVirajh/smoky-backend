@@ -1,15 +1,15 @@
-import { config } from '@root/config';
-import { reactionService } from '@service/db/reaction.service';
+// import { reactionService } from '@features/reaction/reaction.service';
+import { Logger } from '@library/logger.library';
 import { DoneCallback, Job } from 'bull';
-import Logger from 'bunyan';
 
-const log: Logger = config.createLogger('reactionWorker');
+const log = Logger.create('reaction-worker');
 
 class ReactionWorker {
   async addReactionToDB(job: Job, done: DoneCallback): Promise<void> {
     try {
       const { data } = job;
-      await reactionService.addReactionDataToDB(data);
+      // await reactionService.addReactionDataToDB(data);
+
       job.progress(100);
       done(null, data);
     } catch (error) {
@@ -21,7 +21,8 @@ class ReactionWorker {
   async removeReactionFromDB(job: Job, done: DoneCallback): Promise<void> {
     try {
       const { data } = job;
-      await reactionService.removeReactionDataFromDB(data);
+      // await reactionService.removeReactionDataFromDB(data);
+
       job.progress(100);
       done(null, data);
     } catch (error) {
@@ -31,4 +32,4 @@ class ReactionWorker {
   }
 }
 
-export const reactionWorker: ReactionWorker = new ReactionWorker();
+export const reactionWorker = new ReactionWorker();

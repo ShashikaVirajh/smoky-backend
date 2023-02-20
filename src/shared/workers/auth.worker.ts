@@ -1,15 +1,15 @@
-import { config } from '@root/config';
-import { authService } from '@service/db/auth.service';
+import { authService } from '@features/auth/auth.service';
+import { Logger } from '@library/logger.library';
 import { DoneCallback, Job } from 'bull';
-import Logger from 'bunyan';
 
-const log: Logger = config.createLogger('authWorker');
+const log = Logger.create('auth-worker');
 
 class AuthWorker {
   async addAuthUserToDB(job: Job, done: DoneCallback): Promise<void> {
     try {
       const { value } = job.data;
       await authService.createAuthUser(value);
+
       job.progress(100);
       done(null, job.data);
     } catch (error) {
@@ -19,4 +19,4 @@ class AuthWorker {
   }
 }
 
-export const authWorker: AuthWorker = new AuthWorker();
+export const authWorker = new AuthWorker();

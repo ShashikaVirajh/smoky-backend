@@ -1,5 +1,5 @@
-import { IAuthDocument } from '@features/auth/interfaces/auth.interfaces';
-import { AuthModel } from '@features/auth/models/auth.model';
+import { IAuthDocument } from '@features/auth/auth.interfaces';
+import { AuthModel } from '@features/auth/auth.model';
 import { TokenManager } from '@library/token-manager.library';
 import { config } from '@root/config';
 import { capitalizeFirstLetter, lowerCase } from '@utils/strings.utils';

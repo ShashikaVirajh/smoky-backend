@@ -1,4 +1,4 @@
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { IFollowerData } from '@follower/interfaces/follower.interface';
 import { existingUserTwo } from '@root/mocks/user.mock';
 import { Response } from 'express';

@@ -1,5 +1,5 @@
 import { ModelNames } from '@enums';
-import { IAuthDocument } from '@features/auth/interfaces/auth.interfaces';
+import { IAuthDocument } from '@features/auth/auth.interfaces';
 import { PasswordManager } from '@library/password-manager.library';
 import { model, Schema } from 'mongoose';
 

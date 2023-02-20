@@ -1,5 +1,5 @@
-import { authService } from '@features/auth/service/auth.service';
-import { signInSchema } from '@features/auth/validations/auth.validations';
+import { authService } from '@features/auth/auth.service';
+import { signInSchema } from '@features/auth/auth.validations';
 import { IUserDocument } from '@features/user/interfaces/user.interface';
 import { BadRequestError } from '@library/error-handler.library';
 import { TokenManager } from '@library/token-manager.library';

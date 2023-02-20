@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { authService } from '@features/auth/auth.service';
 import { ResetPasswordController } from '@features/auth/controllers/reset-password/reset-password.controller';
-import { authService } from '@features/auth/service/auth.service';
 import { CustomError } from '@library/error-handler.library';
 import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';
 import { emailQueue } from '@shared/queues/email.queue';

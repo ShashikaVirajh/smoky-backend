@@ -1,4 +1,4 @@
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { NotAuthorizedError } from '@library/error-handler.library';
 import { TokenManager } from '@library/token-manager.library';
 import { config } from '@root/config';

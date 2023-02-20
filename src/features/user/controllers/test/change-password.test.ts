@@ -2,7 +2,7 @@
 import { CustomError } from '@library/error-handler.library';
 import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
 import { existingUser } from '@root/mocks/user.mock';
-import { authService } from '@service/db/auth.service';
+import { authService } from '@features/auth/auth.service';
 import { userService } from '@service/db/user.service';
 import { emailQueue } from '@service/queues/email.queue';
 import { Update } from '@user/controllers/change-password';

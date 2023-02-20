@@ -1,5 +1,5 @@
 import { AuthQueueJobs } from '@enums';
-import { IAuthJob } from '@features/auth/interfaces/auth.interfaces';
+import { IAuthJob } from '@features/auth/auth.interfaces';
 import { BaseQueue } from '@shared/queues/base.queue';
 import { authWorker } from '@shared/workers/auth.worker';
 

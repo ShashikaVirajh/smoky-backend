@@ -1,7 +1,7 @@
 import { chatRoutes } from '@chat/routes/chatRoutes';
 import { commentRoutes } from '@comment/routes/commentRoutes';
 import { BaseRoutes } from '@enums';
-import { authRouter } from '@features/auth/routes/auth.routes';
+import { authRouter } from '@features/auth/auth.routes';
 import { followerRoutes } from '@follower/routes/followerRoutes';
 import { imageRoutes } from '@image/routes/imageRoutes';
 import { authMiddleware } from '@middleware/auth-middleware';

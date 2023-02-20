@@ -1,5 +1,5 @@
 import { PostQueueJobs } from '@enums';
-import { IPostJobData } from '@features/post/post.interfaces';
+import { IPostJobData } from '@features/post/interfaces/post.interface';
 import { BaseQueue } from '@shared/queues/base.queue';
 import { postWorker } from '@shared/workers/post.worker';
 

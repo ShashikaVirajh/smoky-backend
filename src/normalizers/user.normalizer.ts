@@ -1,4 +1,4 @@
-import { IAuthDocument, ISignUpData } from '@features/auth/interfaces/auth.interfaces';
+import { IAuthDocument, ISignUpData } from '@features/auth/auth.interfaces';
 import { IUserDocument } from '@features/user/interfaces/user.interface';
 import { capitalizeFirstLetter, lowerCase } from '@utils/strings.utils';
 import { ObjectId } from 'mongodb';

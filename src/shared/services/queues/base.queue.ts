@@ -3,7 +3,7 @@ import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
 import { IChatJobData, IMessageData } from '@chat/interfaces/chat.interface';
 import { ICommentJob } from '@comment/interfaces/comment.interface';
-import { IAuthJob } from '@features/auth/interfaces/auth.interfaces';
+import { IAuthJob } from '@features/auth/auth.interfaces';
 import { IBlockedUserJobData, IFollowerJobData } from '@follower/interfaces/follower.interface';
 import { IFileImageJobData } from '@image/interfaces/image.interface';
 import { INotificationJobData } from '@notification/interfaces/notification.interface';

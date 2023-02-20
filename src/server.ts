@@ -3,7 +3,7 @@ import 'express-async-errors';
 import { CustomError, IErrorResponse } from '@library/error-handler.library';
 import { Logger } from '@library/logger.library';
 import { config } from '@root/config';
-import applicationRoutes from '@root/routes';
+import appRoutes from '@root/routes';
 import { createAdapter } from '@socket.io/redis-adapter';
 import { SocketIOChatHandler } from '@socket/chat';
 import { SocketIOFollowerHandler } from '@socket/follower';
@@ -67,7 +67,7 @@ export class SmokyServer {
   }
 
   private routesMiddleware(app: Application): void {
-    applicationRoutes(app);
+    appRoutes(app);
   }
 
   private globalErrorHandler(app: Application): void {

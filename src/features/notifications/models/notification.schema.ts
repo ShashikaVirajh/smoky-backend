@@ -1,4 +1,4 @@
-import { INotification,INotificationDocument } from '@notification/interfaces/notification.interface';
+import { INotification, INotificationDocument } from '@notification/interfaces/notification.interface';
 import { notificationService } from '@service/db/notification.service';
 import mongoose, { Model, model, Schema } from 'mongoose';
 
@@ -19,7 +19,7 @@ const notificationSchema: Schema = new Schema({
   createdAt: { type: Date, default: Date.now() }
 });
 
-notificationSchema.methods.insertNotification = async function(body: INotification) {
+notificationSchema.methods.insertNotification = async function (body: INotification) {
   const {
     userTo,
     userFrom,

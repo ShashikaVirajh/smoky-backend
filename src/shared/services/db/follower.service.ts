@@ -2,7 +2,7 @@ import { IFollowerData, IFollowerDocument } from '@follower/interfaces/follower.
 import { FollowerModel } from '@follower/models/follower.schema';
 import { INotificationDocument, INotificationTemplate } from '@notification/interfaces/notification.interface';
 import { NotificationModel } from '@notification/models/notification.schema';
-import { IQueryComplete,IQueryDeleted } from '@post/interfaces/post.interface';
+import { IQueryComplete, IQueryDeleted } from '@post/interfaces/post.interface';
 import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
 import { emailQueue } from '@service/queues/email.queue';
 import { UserCache } from '@service/redis/user.cache';
@@ -10,7 +10,7 @@ import { socketIONotificationObject } from '@socket/notification';
 import { IUserDocument } from '@user/interfaces/user.interface';
 import { UserModel } from '@user/models/user.schema';
 import { map } from 'lodash';
-import { BulkWriteResult,ObjectId } from 'mongodb';
+import { BulkWriteResult, ObjectId } from 'mongodb';
 import mongoose, { Query } from 'mongoose';
 
 const userCache: UserCache = new UserCache();
@@ -30,15 +30,15 @@ class FollowerService {
       {
         updateOne: {
           filter: { _id: userId },
-          update: { $inc: { followingCount: 1 }}
+          update: { $inc: { followingCount: 1 } }
         }
       },
       {
         updateOne: {
           filter: { _id: followeeId },
-          update: { $inc: { followersCount: 1 }}
+          update: { $inc: { followersCount: 1 } }
         }
-      },
+      }
     ]);
 
     const response: [BulkWriteResult, IUserDocument | null] = await Promise.all([users, userCache.getUserFromCache(followeeId)]);
@@ -67,7 +67,11 @@ class FollowerService {
         header: 'Follower Notification'
       };
       const template: string = notificationTemplate.notificationMessageTemplate(templateParams);
-      emailQueue.addEmailJob('followersEmail', { receiverEmail: response[1].email!, template, subject: `${username} is now following you.` });
+      emailQueue.addEmailJob('followersEmail', {
+        receiverEmail: response[1].email!,
+        template,
+        subject: `${username} is now following you.`
+      });
     }
   }
 
@@ -84,15 +88,15 @@ class FollowerService {
       {
         updateOne: {
           filter: { _id: followerId },
-          update: { $inc: { followingCount: -1 }}
+          update: { $inc: { followingCount: -1 } }
         }
       },
       {
         updateOne: {
           filter: { _id: followeeId },
-          update: { $inc: { followersCount: -1 }}
+          update: { $inc: { followersCount: -1 } }
         }
-      },
+      }
     ]);
 
     await Promise.all([unfollow, users]);
@@ -166,7 +170,7 @@ class FollowerService {
 
   public async getFolloweesIds(userId: string): Promise<string[]> {
     const followee = await FollowerModel.aggregate([
-      { $match: { followerId: new mongoose.Types.ObjectId(userId)}},
+      { $match: { followerId: new mongoose.Types.ObjectId(userId) } },
       {
         $project: {
           followeeId: 1,

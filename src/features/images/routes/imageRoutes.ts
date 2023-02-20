@@ -1,7 +1,7 @@
-import { authMiddleware } from '@middleware/auth-middleware';
 import { Add } from '@image/controllers/add-image';
 import { Delete } from '@image/controllers/delete-image';
 import { Get } from '@image/controllers/get-images';
+import { authMiddleware } from '@middleware/auth-middleware';
 import express, { Router } from 'express';
 
 class ImageRoutes {

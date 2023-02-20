@@ -1,5 +1,5 @@
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
 import { ICommentDocument, ICommentNameList } from '@comment/interfaces/comment.interface';
+import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
 import { IReactionDocument, IReactions } from '@reaction/interfaces/reaction.interface';
 import { Response } from 'express';
 

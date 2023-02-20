@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
 import { IMessageData } from '@chat/interfaces/chat.interface';
 import { IChatList } from '@chat/interfaces/chat.interface';
+import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
 import { existingUser, existingUserTwo } from '@root/mocks/user.mock';
 import { Response } from 'express';
 import { ObjectId } from 'mongodb';

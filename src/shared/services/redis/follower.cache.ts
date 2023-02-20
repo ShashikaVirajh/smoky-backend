@@ -1,6 +1,6 @@
 import { IFollowerData } from '@follower/interfaces/follower.interface';
-import { ServerError } from '@library/error-handler.library';
 import { Helpers } from '@global/helpers/helpers';
+import { ServerError } from '@library/error-handler.library';
 import { config } from '@root/config';
 import { BaseCache } from '@service/redis/base.cache';
 import { UserCache } from '@service/redis/user.cache';

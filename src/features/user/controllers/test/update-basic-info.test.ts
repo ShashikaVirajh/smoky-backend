@@ -1,4 +1,4 @@
-import { authMockRequest, authMockResponse,authUserPayload } from '@root/mocks/auth.mock';
+import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
 import { userQueue } from '@service/queues/user.queue';
 import { UserCache } from '@service/redis/user.cache';
 import * as userServer from '@socket/user';

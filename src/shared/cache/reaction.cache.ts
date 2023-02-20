@@ -76,10 +76,7 @@ export class ReactionCache extends BaseCache {
     }
   }
 
-  public async getSingleReactionByUsernameFromCache(
-    postId: string,
-    username: string
-  ): Promise<[IReactionDocument, number] | []> {
+  public async getSingleReactionByUsernameFromCache(postId: string, username: string): Promise<[IReactionDocument, number] | []> {
     try {
       if (!this.client.isOpen) {
         await this.client.connect();

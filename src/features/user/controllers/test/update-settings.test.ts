@@ -1,4 +1,4 @@
-import { authMockRequest, authMockResponse,authUserPayload } from '@root/mocks/auth.mock';
+import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
 import { userQueue } from '@service/queues/user.queue';
 import { UserCache } from '@service/redis/user.cache';
 import { UpdateSettings } from '@user/controllers/update-settings';
@@ -32,11 +32,7 @@ describe('Settings', () => {
       jest.spyOn(userQueue, 'addUserJob');
 
       await UpdateSettings.prototype.notification(req, res);
-      expect(UserCache.prototype.updateSingleUserItemInCache).toHaveBeenCalledWith(
-        `${req.currentUser?.userId}`,
-        'notifications',
-        req.body
-      );
+      expect(UserCache.prototype.updateSingleUserItemInCache).toHaveBeenCalledWith(`${req.currentUser?.userId}`, 'notifications', req.body);
       expect(userQueue.addUserJob).toHaveBeenCalledWith('updateNotificationSettings', {
         key: `${req.currentUser?.userId}`,
         value: req.body

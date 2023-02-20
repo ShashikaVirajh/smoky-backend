@@ -1,4 +1,4 @@
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
+import { joiValidation } from '@library/validation.library';
 import { userQueue } from '@service/queues/user.queue';
 import { UserCache } from '@service/redis/user.cache';
 import { notificationSettingsSchema } from '@user/schemes/info';

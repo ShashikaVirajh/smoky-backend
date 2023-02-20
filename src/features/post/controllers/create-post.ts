@@ -1,6 +1,6 @@
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { uploads } from '@global/helpers/cloudinary-upload';
-import { BadRequestError } from '@global/helpers/error-handler';
+import { uploadImage } from '@library/cloudinary.library';
+import { BadRequestError } from '@library/error-handler.library';
+import { joiValidation } from '@library/validation.library';
 import { IPostDocument } from '@post/interfaces/post.interface';
 import { postSchema, postWithImageSchema } from '@post/schemes/post.schemes';
 import { imageQueue } from '@service/queues/image.queue';
@@ -52,7 +52,7 @@ export class Create {
   public async postWithImage(req: Request, res: Response): Promise<void> {
     const { post, bgColor, privacy, gifUrl, profilePicture, feelings, image } = req.body;
 
-    const result: UploadApiResponse = (await uploads(image)) as UploadApiResponse;
+    const result: UploadApiResponse = (await uploadImage(image)) as UploadApiResponse;
     if (!result?.public_id) {
       throw new BadRequestError(result.message);
     }

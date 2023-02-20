@@ -1,4 +1,4 @@
-import { authMiddleware } from '@global/helpers/auth-middleware';
+import { authMiddleware } from '@middleware/auth-middleware';
 import { Add } from '@image/controllers/add-image';
 import { Delete } from '@image/controllers/delete-image';
 import { Get } from '@image/controllers/get-images';

@@ -1,4 +1,4 @@
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
+import { joiValidation } from '@library/validation.library';
 import { userQueue } from '@service/queues/user.queue';
 import { UserCache } from '@service/redis/user.cache';
 import { basicInfoSchema, socialLinksSchema } from '@user/schemes/info';
@@ -10,7 +10,7 @@ const userCache: UserCache = new UserCache();
 export class Edit {
   @joiValidation(basicInfoSchema)
   public async info(req: Request, res: Response): Promise<void> {
-    for(const [key, value] of Object.entries(req.body)) {
+    for (const [key, value] of Object.entries(req.body)) {
       await userCache.updateSingleUserItemInCache(`${req.currentUser!.userId}`, key, `${value}`);
     }
     userQueue.addUserJob('updateBasicInfoInDB', {

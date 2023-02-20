@@ -1,14 +1,16 @@
+import databaseConnection from '@connections/database.connection';
 import { config } from '@root/config';
-import databaseConnection from '@root/setupDatabase';
-import { ChattyServer } from '@root/setupServer';
+import { SmokyServer } from '@root/server';
 import express, { Express } from 'express';
 
 class Application {
   public initialize(): void {
     this.loadConfig();
+
     databaseConnection();
+
     const app: Express = express();
-    const server: ChattyServer = new ChattyServer(app);
+    const server = new SmokyServer(app);
     server.start();
   }
 
@@ -18,5 +20,5 @@ class Application {
   }
 }
 
-const application: Application = new Application();
+const application = new Application();
 application.initialize();

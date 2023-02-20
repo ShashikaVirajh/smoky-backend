@@ -1,6 +1,6 @@
 import { Add } from '@comment/controllers/add-comment';
 import { Get } from '@comment/controllers/get-comments';
-import { authMiddleware } from '@global/helpers/auth-middleware';
+import { authMiddleware } from '@middleware/auth-middleware';
 import express, { Router } from 'express';
 
 class CommentRoutes {

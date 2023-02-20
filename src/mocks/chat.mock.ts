@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AuthPayload } from '@auth/interfaces/auth.interface';
+import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
 import { IMessageData } from '@chat/interfaces/chat.interface';
 import { IChatList } from '@chat/interfaces/chat.interface';
 import { existingUser, existingUserTwo } from '@root/mocks/user.mock';

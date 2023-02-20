@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { CustomError } from '@global/helpers/error-handler';
+import { CustomError } from '@library/error-handler.library';
 import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
 import { existingUser } from '@root/mocks/user.mock';
 import { authService } from '@service/db/auth.service';

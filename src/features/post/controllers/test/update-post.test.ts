@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
+import * as cloudinary from '@library/cloudinary.library';
 import { Update } from '@post/controllers/update-post';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { postMockData, postMockRequest, postMockResponse, updatedPost, updatedPostWithImage } from '@root/mocks/post.mock';
@@ -84,7 +84,7 @@ describe('Update', () => {
       const req: Request = postMockRequest(updatedPostWithImage, authUserPayload, { postId: `${postMockData._id}` }) as Request;
       const res: Response = postMockResponse();
       const postSpy = jest.spyOn(PostCache.prototype, 'updatePostInCache');
-      jest.spyOn(cloudinaryUploads, 'uploads').mockImplementation((): any => Promise.resolve({ version: '1234', public_id: '123456' }));
+      jest.spyOn(cloudinary, 'uploadImage').mockImplementation((): any => Promise.resolve({ version: '1234', public_id: '123456' }));
       jest.spyOn(postServer.socketIOPostObject, 'emit');
       jest.spyOn(postQueue, 'addPostJob');
 

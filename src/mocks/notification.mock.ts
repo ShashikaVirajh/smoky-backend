@@ -1,4 +1,4 @@
-import { AuthPayload } from '@auth/interfaces/auth.interface';
+import { AuthPayload } from '@features/auth/interfaces/auth.interfaces';
 import { INotificationDocument } from '@notification/interfaces/notification.interface';
 import { Response } from 'express';
 

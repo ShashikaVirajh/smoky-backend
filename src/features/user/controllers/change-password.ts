@@ -1,6 +1,6 @@
-import { IAuthDocument } from '@auth/interfaces/auth.interface';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { BadRequestError } from '@global/helpers/error-handler';
+import { IAuthDocument } from '@features/auth/interfaces/auth.interfaces';
+import { BadRequestError } from '@library/error-handler.library';
+import { joiValidation } from '@library/validation.library';
 import { authService } from '@service/db/auth.service';
 import { userService } from '@service/db/user.service';
 import { resetPasswordTemplate } from '@service/emails/templates/reset-password/reset-password-template';
@@ -21,7 +21,7 @@ export class Update {
     }
     const existingUser: IAuthDocument = await authService.getAuthUserByUsername(req.currentUser!.username);
     const passwordsMatch: boolean = await existingUser.comparePassword(currentPassword);
-    if(!passwordsMatch) {
+    if (!passwordsMatch) {
       throw new BadRequestError('Invalid credentials');
     }
     const hashedPassword: string = await existingUser.hashPassword(newPassword);

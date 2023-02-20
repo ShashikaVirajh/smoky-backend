@@ -1,6 +1,6 @@
 import { IMessageData } from '@chat/interfaces/chat.interface';
 import { markChatSchema } from '@chat/schemes/chat';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
+import { joiValidation } from '@library/validation.library';
 import { chatQueue } from '@service/queues/chat.queue';
 import { MessageCache } from '@service/redis/message.cache';
 import { socketIOChatObject } from '@socket/chat';

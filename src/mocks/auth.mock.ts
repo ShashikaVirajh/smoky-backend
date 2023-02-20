@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { AuthPayload, IAuthDocument } from '@auth/interfaces/auth.interface';
+import { AuthPayload, IAuthDocument } from '@features/auth/interfaces/auth.interfaces';
 import { Response } from 'express';
 
 export const authMockRequest = (sessionData: IJWT, body: IAuthMock, currentUser?: AuthPayload | null, params?: any) => ({
@@ -41,10 +41,10 @@ export interface IAuthMock {
   instagram?: string;
   twitter?: string;
   youtube?: string;
-  messages?: boolean,
-  reactions?: boolean,
-  comments?: boolean,
-  follows?: boolean
+  messages?: boolean;
+  reactions?: boolean;
+  comments?: boolean;
+  follows?: boolean;
 }
 
 export const authUserPayload: AuthPayload = {

@@ -1,6 +1,6 @@
 import { ICommentDocument, ICommentJob } from '@comment/interfaces/comment.interface';
 import { addCommentSchema } from '@comment/schemes/comment';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
+import { joiValidation } from '@library/validation.library';
 import { commentQueue } from '@service/queues/comment.queue';
 import { CommentCache } from '@service/redis/comment.cache';
 import { Request, Response } from 'express';

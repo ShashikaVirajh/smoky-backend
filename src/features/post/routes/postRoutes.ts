@@ -1,4 +1,4 @@
-import { authMiddleware } from '@global/helpers/auth-middleware';
+import { authMiddleware } from '@middleware/auth-middleware';
 import { Create } from '@post/controllers/create-post';
 import { Delete } from '@post/controllers/delete-post';
 import { Get } from '@post/controllers/get-posts';

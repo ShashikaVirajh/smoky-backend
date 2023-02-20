@@ -2,7 +2,7 @@ import { AddUser } from '@follower/controllers/block-user';
 import { Add } from '@follower/controllers/follower-user';
 import { Get } from '@follower/controllers/get-followers';
 import { Remove } from '@follower/controllers/unfollow-user';
-import { authMiddleware } from '@global/helpers/auth-middleware';
+import { authMiddleware } from '@middleware/auth-middleware';
 import express, { Router } from 'express';
 
 class FollowerRoutes {

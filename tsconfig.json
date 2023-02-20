@@ -19,11 +19,17 @@
     "allowSyntheticDefaultImports": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "plugins": [
-      { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true },
-    ],
+    "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
+      "@connections/*": ["src/connections/*"],
+      "@constants/*": ["src/constants/*"],
+      "@enums": ["src/enums"],
+      "@features/*": ["src/features/*"],
+      "@library/*": ["src/library/*"],
+      "@middleware/*": ["src/middleware/*"],
+      "@normalizers/*": ["src/normalizers/*"],
+      "@shared/*": ["src/shared/*"],
+
       "@auth/*": ["src/features/auth/*"],
       "@user/*": ["src/features/user/*"],
       "@post/*": ["src/features/post/*"],
@@ -37,6 +43,7 @@
       "@service/*": ["src/shared/services/*"],
       "@socket/*": ["src/shared/sockets/*"],
       "@worker/*": ["src/shared/workers/*"],
+      "@utils/*": ["src/utils/*"],
       "@root/*": ["src/*"]
     }
   }

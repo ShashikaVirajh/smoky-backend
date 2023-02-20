@@ -1,4 +1,4 @@
-import { authMiddleware } from '@global/helpers/auth-middleware';
+import { authMiddleware } from '@middleware/auth-middleware';
 import { Update } from '@user/controllers/change-password';
 import { Get } from '@user/controllers/get-profile';
 import { Search } from '@user/controllers/search-user';

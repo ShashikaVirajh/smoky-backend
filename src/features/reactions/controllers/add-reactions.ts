@@ -1,4 +1,4 @@
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
+import { joiValidation } from '@library/validation.library';
 import { IReactionDocument, IReactionJob } from '@reaction/interfaces/reaction.interface';
 import { addReactionSchema } from '@reaction/schemes/reactions';
 import { reactionQueue } from '@service/queues/reaction.queue';

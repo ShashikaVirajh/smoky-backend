@@ -1,4 +1,5 @@
 import databaseConnection from '@connections/database.connection';
+import { ExceptionHandler } from '@library/exception-handler.library';
 import { config } from '@root/config';
 import { SmokyServer } from '@root/server';
 import express, { Express } from 'express';
@@ -12,6 +13,8 @@ class Application {
     const app: Express = express();
     const server = new SmokyServer(app);
     server.start();
+
+    ExceptionHandler.handleExit();
   }
 
   private loadConfig(): void {

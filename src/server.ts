@@ -87,6 +87,8 @@ export class SmokyServer {
   }
 
   private async startServer(app: Application): Promise<void> {
+    if (!config.ACCESS_TOKEN_SECRET) throw new Error('ACCESS_TOKEN_SECRET must be provided');
+
     try {
       const httpServer: http.Server = new http.Server(app);
       const socketIO: Server = await this.createSocketIO(httpServer);
@@ -116,6 +118,7 @@ export class SmokyServer {
   }
 
   private startHttpServer(httpServer: http.Server): void {
+    log.info(`Worker with process id of ${process.pid} has started..`);
     log.info(`Server has started with process ${process.pid}`);
 
     httpServer.listen(config.SERVER_PORT, () => {

@@ -8,6 +8,9 @@
   "license": "ISC",
   "scripts": {
     "start:dev": "nodemon -r tsconfig-paths/register src/app.ts | ./node_modules/.bin/bunyan",
+    "start:prod": "NODE_ENV=production pm2 start ./build/src/app.js -i 5 --attach --watch | ./node_modules/.bin/bunyan",
+    "stop": "pm2 stop all",
+    "delete": "pm2 delete all",
     "lint:check": "eslint 'src/**/*.ts'",
     "lint:fix": "eslint 'src/**/*.ts' --fix",
     "prettier:check": "prettier --check 'src/**/*.{ts,json}'",
@@ -47,6 +50,7 @@
     "nodemailer": "^6.9.1",
     "redis": "^4.6.4",
     "socket.io": "^4.5.4",
+    "swagger-stats": "^0.99.5",
     "ttypescript": "^1.5.15",
     "typescript": "^4.9.4",
     "typescript-transform-paths": "^3.4.6"
@@ -69,6 +73,7 @@
     "@types/lodash": "^4.14.191",
     "@types/nodemailer": "^6.4.7",
     "@types/redis-info": "^3.0.0",
+    "@types/swagger-stats": "^0.95.8",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "bullmq": "^3.7.0",

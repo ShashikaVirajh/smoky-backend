@@ -21,6 +21,7 @@ import http from 'http';
 import HTTP_STATUS from 'http-status-codes';
 import { createClient } from 'redis';
 import { Server } from 'socket.io';
+import apiStats from 'swagger-stats';
 
 const log = Logger.create('server');
 
@@ -35,6 +36,7 @@ export class SmokyServer {
     this.securityMiddleware(this.app);
     this.standardMiddleware(this.app);
     this.routesMiddleware(this.app);
+    this.apiMonitoring(this.app);
     this.globalErrorHandler(this.app);
     this.startServer(this.app);
   }
@@ -68,6 +70,10 @@ export class SmokyServer {
 
   private routesMiddleware(app: Application): void {
     appRoutes(app);
+  }
+
+  private apiMonitoring(app: Application): void {
+    app.use(apiStats.getMiddleware({ uriPath: '/api-monitoring' }));
   }
 
   private globalErrorHandler(app: Application): void {

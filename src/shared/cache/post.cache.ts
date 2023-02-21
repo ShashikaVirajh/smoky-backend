@@ -1,5 +1,5 @@
-import { IPostDocument, ISavePostToCache } from '@features/post/post.interfaces';
-import { IReactions } from '@features/reaction/reaction.interfaces';
+import { IPostDocument, ISavePostToCache } from '@features/post/interfaces/post.interface';
+import { IReactions } from '@features/reactions/interfaces/reaction.interface';
 import { ServerError } from '@library/error-handler.library';
 import { Logger } from '@library/logger.library';
 import { RedisCommandRawReply } from '@redis/client/dist/lib/commands';

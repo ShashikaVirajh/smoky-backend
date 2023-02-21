@@ -1,4 +1,4 @@
-import { IReactionDocument, IReactions } from '@features/reaction/reaction.interfaces';
+import { IReactionDocument, IReactions } from '@features/reactions/interfaces/reaction.interface';
 import { ServerError } from '@library/error-handler.library';
 import { Logger } from '@library/logger.library';
 import { BaseCache } from '@shared/cache/base.cache';

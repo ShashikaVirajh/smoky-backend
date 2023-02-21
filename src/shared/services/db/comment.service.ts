@@ -4,9 +4,9 @@ import { INotificationDocument, INotificationTemplate } from '@notification/inte
 import { NotificationModel } from '@notification/models/notification.schema';
 import { IPostDocument } from '@post/interfaces/post.interface';
 import { PostModel } from '@post/models/post.schema';
-import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
 import { emailQueue } from '@service/queues/email.queue';
 import { UserCache } from '@service/redis/user.cache';
+import { notificationTemplate } from '@shared/templates/notifications/notification-template';
 import { socketIONotificationObject } from '@socket/notification';
 import { IUserDocument } from '@user/interfaces/user.interface';
 import mongoose, { Query } from 'mongoose';

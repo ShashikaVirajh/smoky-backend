@@ -70,4 +70,4 @@ class EmailTransport {
   }
 }
 
-export const emailTransport: EmailTransport = new EmailTransport();
+export const emailTransport = new EmailTransport();

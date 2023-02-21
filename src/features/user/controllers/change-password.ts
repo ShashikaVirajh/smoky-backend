@@ -1,10 +1,10 @@
 import { IAuthDocument } from '@features/auth/auth.interfaces';
+import { authService } from '@features/auth/auth.service';
 import { BadRequestError } from '@library/error-handler.library';
 import { joiValidation } from '@library/validation.library';
-import { authService } from '@features/auth/auth.service';
 import { userService } from '@service/db/user.service';
-import { resetPasswordTemplate } from '@service/emails/templates/reset-password/reset-password-template';
 import { emailQueue } from '@service/queues/email.queue';
+import { resetPasswordTemplate } from '@shared/templates/reset-password/reset-password.template';
 import { IResetPasswordParams } from '@user/interfaces/user.interface';
 import { changePasswordSchema } from '@user/schemes/info';
 import { Request, Response } from 'express';
@@ -33,7 +33,7 @@ export class Update {
       ipaddress: publicIP.address(),
       date: moment().format('DD//MM//YYYY HH:mm')
     };
-    const template: string = resetPasswordTemplate.passwordResetConfirmationTemplate(templateParams);
+    const template: string = resetPasswordTemplate.sendPasswordResetSuccessfulEmail(templateParams);
     emailQueue.addEmailJob('changePassword', { template, receiverEmail: existingUser.email!, subject: 'Password update confirmation' });
     res.status(HTTP_STATUS.OK).json({
       message: 'Password updated successfully. You will be redirected shortly to the login page.'

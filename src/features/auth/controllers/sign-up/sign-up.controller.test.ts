@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SignUpController } from '@features/auth/controllers/sign-up/sign-up.controller';
 import { authService } from '@features/auth/auth.service';
+import { SignUpController } from '@features/auth/controllers/sign-up/sign-up.controller';
 import * as cloudinary from '@library/cloudinary.library';
 import { CustomError } from '@library/error-handler.library';
 import { authMock, authMockRequest, authMockResponse } from '@root/mocks/auth.mock';

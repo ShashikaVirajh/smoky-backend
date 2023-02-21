@@ -14,4 +14,4 @@ class NotificationTemplate {
   }
 }
 
-export const notificationTemplate: NotificationTemplate = new NotificationTemplate();
+export const notificationTemplate = new NotificationTemplate();

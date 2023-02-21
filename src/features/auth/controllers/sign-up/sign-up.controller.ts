@@ -63,10 +63,7 @@ export class SignUpController {
       avatarColor: authData.avatarColor
     };
 
-    console.log({ tokenPayload });
-
     const accessToken = TokenManager.generateToken(tokenPayload, config.ACCESS_TOKEN_SECRET!);
-    console.log({ accessToken });
     req.session = { accessToken };
 
     const response = { message: 'User created successfully', user: userDataForCache, accessToken };

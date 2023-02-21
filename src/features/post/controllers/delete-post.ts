@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import { PostCache } from '@service/redis/post.cache';
-import HTTP_STATUS from 'http-status-codes';
 import { postQueue } from '@service/queues/post.queue';
+import { PostCache } from '@service/redis/post.cache';
 import { socketIOPostObject } from '@socket/post';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
 
 const postCache: PostCache = new PostCache();
 

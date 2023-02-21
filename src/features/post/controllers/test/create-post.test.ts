@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
+import * as cloudinary from '@library/cloudinary.library';
+import { CustomError } from '@library/error-handler.library';
+import { Create } from '@post/controllers/create-post';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import * as postServer from '@socket/post';
 import { newPost, postMockRequest, postMockResponse } from '@root/mocks/post.mock';
 import { postQueue } from '@service/queues/post.queue';
-import { Create } from '@post/controllers/create-post';
 import { PostCache } from '@service/redis/post.cache';
-import { CustomError } from '@global/helpers/error-handler';
-import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
+import * as postServer from '@socket/post';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
@@ -74,7 +74,7 @@ describe('Create', () => {
       const req: Request = postMockRequest(newPost, authUserPayload) as Request;
       const res: Response = postMockResponse();
       jest
-        .spyOn(cloudinaryUploads, 'uploads')
+        .spyOn(cloudinary, 'uploadImage')
         .mockImplementation((): any => Promise.resolve({ version: '', public_id: '', message: 'Upload error' }));
 
       Create.prototype.postWithImage(req, res).catch((error: CustomError) => {
@@ -90,7 +90,7 @@ describe('Create', () => {
       jest.spyOn(postServer.socketIOPostObject, 'emit');
       const spy = jest.spyOn(PostCache.prototype, 'savePostToCache');
       jest.spyOn(postQueue, 'addPostJob');
-      jest.spyOn(cloudinaryUploads, 'uploads').mockImplementation((): any => Promise.resolve({ version: '1234', public_id: '123456' }));
+      jest.spyOn(cloudinary, 'uploadImage').mockImplementation((): any => Promise.resolve({ version: '1234', public_id: '123456' }));
 
       await Create.prototype.postWithImage(req, res);
       const createdPost = spy.mock.calls[0][0].createdPost;

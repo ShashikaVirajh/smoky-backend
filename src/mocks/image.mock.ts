@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Response } from 'express';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { IFileImageDocument } from '@image/interfaces/image.interface';
-import { AuthPayload } from '@auth/interfaces/auth.interface';
-import { IJWT } from './auth.mock';
+import { Response } from 'express';
 import mongoose from 'mongoose';
+
+import { IJWT } from './auth.mock';
 
 export const imagesMockRequest = (sessionData: IJWT, body: any, currentUser?: AuthPayload | null, params?: IParams) => ({
   session: sessionData,

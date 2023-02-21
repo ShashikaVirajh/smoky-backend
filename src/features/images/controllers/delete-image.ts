@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
-import HTTP_STATUS from 'http-status-codes';
-import { UserCache } from '@service/redis/user.cache';
-import { IUserDocument } from '@user/interfaces/user.interface';
-import { socketIOImageObject } from '@socket/image';
-import { imageQueue } from '@service/queues/image.queue';
 import { IFileImageDocument } from '@image/interfaces/image.interface';
 import { imageService } from '@service/db/image.service';
+import { imageQueue } from '@service/queues/image.queue';
+import { UserCache } from '@service/redis/user.cache';
+import { socketIOImageObject } from '@socket/image';
+import { IUserDocument } from '@user/interfaces/user.interface';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
 
 const userCache: UserCache = new UserCache();
 
@@ -32,7 +32,7 @@ export class Delete {
       'bgImageVersion',
       ''
     ) as Promise<IUserDocument>;
-    await Promise.all([bgImageId, bgImageVersion]) as [IUserDocument, IUserDocument];
+    (await Promise.all([bgImageId, bgImageVersion])) as [IUserDocument, IUserDocument];
     imageQueue.addImageJob('removeImageFromDB', {
       imageId: image?._id
     });

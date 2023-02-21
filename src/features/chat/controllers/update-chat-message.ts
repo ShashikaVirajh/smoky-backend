@@ -1,12 +1,12 @@
+import { IMessageData } from '@chat/interfaces/chat.interface';
+import { markChatSchema } from '@chat/schemes/chat';
+import { joiValidation } from '@library/validation.library';
+import { chatQueue } from '@service/queues/chat.queue';
+import { MessageCache } from '@service/redis/message.cache';
+import { socketIOChatObject } from '@socket/chat';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
 import mongoose from 'mongoose';
-import { MessageCache } from '@service/redis/message.cache';
-import { IMessageData } from '@chat/interfaces/chat.interface';
-import { socketIOChatObject } from '@socket/chat';
-import { chatQueue } from '@service/queues/chat.queue';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { markChatSchema } from '@chat/schemes/chat';
 
 const messageCache: MessageCache = new MessageCache();
 

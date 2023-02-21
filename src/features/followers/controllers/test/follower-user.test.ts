@@ -1,13 +1,13 @@
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
+import { Add } from '@follower/controllers/follower-user';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import * as followerServer from '@socket/follower';
 import { followersMockRequest, followersMockResponse } from '@root/mocks/followers.mock';
 import { existingUser } from '@root/mocks/user.mock';
 import { followerQueue } from '@service/queues/follower.queue';
-import { Add } from '@follower/controllers/follower-user';
-import { UserCache } from '@service/redis/user.cache';
 import { FollowerCache } from '@service/redis/follower.cache';
+import { UserCache } from '@service/redis/user.cache';
+import * as followerServer from '@socket/follower';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

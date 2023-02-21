@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
-import { Server } from 'socket.io';
+import { Delete } from '@notification/controllers/delete-notification';
 import { authUserPayload } from '@root/mocks/auth.mock';
-import * as notificationServer from '@socket/notification';
 import { notificationMockRequest, notificationMockResponse } from '@root/mocks/notification.mock';
 import { notificationQueue } from '@service/queues/notification.queue';
-import { Delete } from '@notification/controllers/delete-notification';
+import * as notificationServer from '@socket/notification';
+import { Request, Response } from 'express';
+import { Server } from 'socket.io';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

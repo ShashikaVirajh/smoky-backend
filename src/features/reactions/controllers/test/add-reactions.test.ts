@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
+import { Add } from '@reaction/controllers/add-reactions';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { reactionMockRequest, reactionMockResponse } from '@root/mocks/reactions.mock';
-import { ReactionCache } from '@service/redis/reaction.cache';
 import { reactionQueue } from '@service/queues/reaction.queue';
-import { Add } from '@reaction/controllers/add-reactions';
+import { ReactionCache } from '@service/redis/reaction.cache';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

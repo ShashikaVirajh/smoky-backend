@@ -1,15 +1,15 @@
 import { ICommentDocument, ICommentJob, ICommentNameList, IQueryComment } from '@comment/interfaces/comment.interface';
 import { CommentsModel } from '@comment/models/comment.schema';
+import { INotificationDocument, INotificationTemplate } from '@notification/interfaces/notification.interface';
+import { NotificationModel } from '@notification/models/notification.schema';
 import { IPostDocument } from '@post/interfaces/post.interface';
 import { PostModel } from '@post/models/post.schema';
-import mongoose, { Query } from 'mongoose';
-import { UserCache } from '@service/redis/user.cache';
-import { IUserDocument } from '@user/interfaces/user.interface';
-import { NotificationModel } from '@notification/models/notification.schema';
-import { INotificationDocument, INotificationTemplate } from '@notification/interfaces/notification.interface';
-import { socketIONotificationObject } from '@socket/notification';
-import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
 import { emailQueue } from '@service/queues/email.queue';
+import { UserCache } from '@service/redis/user.cache';
+import { notificationTemplate } from '@shared/templates/notifications/notification-template';
+import { socketIONotificationObject } from '@socket/notification';
+import { IUserDocument } from '@user/interfaces/user.interface';
+import mongoose, { Query } from 'mongoose';
 
 const userCache: UserCache = new UserCache();
 
@@ -54,10 +54,7 @@ class CommentService {
   }
 
   public async getPostComments(query: IQueryComment, sort: Record<string, 1 | -1>): Promise<ICommentDocument[]> {
-    const comments: ICommentDocument[] = await CommentsModel.aggregate([
-      { $match: query },
-      { $sort: sort }
-    ]);
+    const comments: ICommentDocument[] = await CommentsModel.aggregate([{ $match: query }, { $sort: sort }]);
     return comments;
   }
 

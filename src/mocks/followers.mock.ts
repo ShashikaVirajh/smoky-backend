@@ -1,9 +1,10 @@
-import { Response } from 'express';
-import { IJWT } from './auth.mock';
-import { AuthPayload } from '@auth/interfaces/auth.interface';
-import { existingUserTwo } from '@root/mocks/user.mock';
-import mongoose from 'mongoose';
+import { AuthPayload } from '@features/auth/auth.interfaces';
 import { IFollowerData } from '@follower/interfaces/follower.interface';
+import { existingUserTwo } from '@root/mocks/user.mock';
+import { Response } from 'express';
+import mongoose from 'mongoose';
+
+import { IJWT } from './auth.mock';
 
 export const followersMockRequest = (sessionData: IJWT, currentUser?: AuthPayload | null, params?: IParams) => ({
   session: sessionData,

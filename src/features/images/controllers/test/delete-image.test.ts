@@ -1,12 +1,12 @@
+import { Delete } from '@image/controllers/delete-image';
+import { authUserPayload } from '@root/mocks/auth.mock';
+import { fileDocumentMock, imagesMockRequest, imagesMockResponse } from '@root/mocks/image.mock';
+import { imageService } from '@service/db/image.service';
+import { imageQueue } from '@service/queues/image.queue';
+import { UserCache } from '@service/redis/user.cache';
+import * as imageServer from '@socket/image';
 import { Request, Response } from 'express';
 import { Server } from 'socket.io';
-import { authUserPayload } from '@root/mocks/auth.mock';
-import * as imageServer from '@socket/image';
-import { fileDocumentMock, imagesMockRequest, imagesMockResponse } from '@root/mocks/image.mock';
-import { imageQueue } from '@service/queues/image.queue';
-import { Delete } from '@image/controllers/delete-image';
-import { imageService } from '@service/db/image.service';
-import { UserCache } from '@service/redis/user.cache';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

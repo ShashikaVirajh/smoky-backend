@@ -1,39 +1,39 @@
 @baseUrl = http://localhost:8000
-@urlPath = api/v1
+@urlPath = api/v1/auth
 
 ###
-POST {{baseUrl}}/{{urlPath}}/signup
+POST {{baseUrl}}/{{urlPath}}/sign-up
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "username": "steve",
-  "password": "qwerty",
-  "email": "steve@test.com",
+  "username": "Nimeshika1",
+  "password": "nimenime1",
+  "email": "nim1@test.com",
   "avatarColor": "blue",
   "avatarImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAAMyAQMAAABtkHM/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAFiS0dEAf8CLd4AAABrSURBVBgZ7cGBAAAAAMOg+1NP4AjVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjgBSwwABwrL8wAAAAABJRU5ErkJggg=="
 }
 
 ###
-POST {{baseUrl}}/{{urlPath}}/signin
+POST {{baseUrl}}/{{urlPath}}/sign-in
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "username": "steve",
-  "password": "qwerty1"
+  "username": "Nimeshika1",
+  "password": "nimenime1"
 }
 
 ###
-GET {{baseUrl}}/{{urlPath}}/signout
+GET {{baseUrl}}/{{urlPath}}/sign-out
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 ###
-GET {{baseUrl}}/{{urlPath}}/currentuser
+GET {{baseUrl}}/{{urlPath}}/current-user
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
@@ -45,16 +45,16 @@ Accept: application/json
 withCredentials: true
 
 {
-  "email": "steve@test.com"
+  "email": "nim@test.com"
 }
 
 ###
-POST {{baseUrl}}/{{urlPath}}/reset-password/f1b769149d3d1e0a6f891887c2aab432240096ab
+POST {{baseUrl}}/{{urlPath}}/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2YzYjJhNDk4NzkzODhlMDkzNTg1NzAiLCJpYXQiOjE2NzY5MTU2ODQsImV4cCI6MTY3NjkxNTk4NH0.YPJ5KpHhmogb-cnzpx-Ewt5c0GobmrQXomvjXPBKLWw
 Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
 {
-  "password": "qwerty1",
-  "confirmPassword": "qwerty1"
+  "password": "newpassword",
+  "confirmPassword": "newpassword"
 }

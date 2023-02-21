@@ -1,7 +1,7 @@
-import { DoneCallback, Job } from 'bull';
-import Logger from 'bunyan';
 import { config } from '@root/config';
 import { userService } from '@service/db/user.service';
+import { DoneCallback, Job } from 'bull';
+import Logger from 'bunyan';
 
 const log: Logger = config.createLogger('userWorker');
 
@@ -10,6 +10,7 @@ class UserWorker {
     try {
       const { value } = job.data;
       await userService.addUserData(value);
+
       job.progress(100);
       done(null, job.data);
     } catch (error) {
@@ -22,6 +23,7 @@ class UserWorker {
     try {
       const { key, value } = job.data;
       await userService.updateUserInfo(key, value);
+
       job.progress(100);
       done(null, job.data);
     } catch (error) {
@@ -34,6 +36,7 @@ class UserWorker {
     try {
       const { key, value } = job.data;
       await userService.updateSocialLinks(key, value);
+
       job.progress(100);
       done(null, job.data);
     } catch (error) {
@@ -46,6 +49,7 @@ class UserWorker {
     try {
       const { key, value } = job.data;
       await userService.updateNotificationSettings(key, value);
+
       job.progress(100);
       done(null, job.data);
     } catch (error) {
@@ -55,4 +59,4 @@ class UserWorker {
   }
 }
 
-export const userWorker: UserWorker = new UserWorker();
+export const userWorker = new UserWorker();

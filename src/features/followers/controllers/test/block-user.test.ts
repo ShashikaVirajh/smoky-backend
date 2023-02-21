@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
+import { AddUser } from '@follower/controllers/block-user';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { followersMockRequest, followersMockResponse } from '@root/mocks/followers.mock';
-import { AddUser } from '@follower/controllers/block-user';
-import { FollowerCache } from '@service/redis/follower.cache';
 import { blockedUserQueue } from '@service/queues/blocked.queue';
+import { FollowerCache } from '@service/redis/follower.cache';
+import { Request, Response } from 'express';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

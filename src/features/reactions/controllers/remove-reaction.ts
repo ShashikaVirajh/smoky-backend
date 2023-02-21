@@ -1,8 +1,8 @@
+import { IReactionJob } from '@reaction/interfaces/reaction.interface';
+import { reactionQueue } from '@service/queues/reaction.queue';
+import { ReactionCache } from '@service/redis/reaction.cache';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
-import { IReactionJob } from '@reaction/interfaces/reaction.interface';
-import { ReactionCache } from '@service/redis/reaction.cache';
-import { reactionQueue } from '@service/queues/reaction.queue';
 
 const reactionCache: ReactionCache = new ReactionCache();
 
@@ -13,7 +13,7 @@ export class Remove {
     const databaseReactionData: IReactionJob = {
       postId,
       username: req.currentUser!.username,
-      previousReaction,
+      previousReaction
     };
     reactionQueue.addReactionJob('removeReactionFromDB', databaseReactionData);
     res.status(HTTP_STATUS.OK).json({ message: 'Reaction removed from post' });

@@ -1,8 +1,8 @@
+import { IPostDocument } from '@post/interfaces/post.interface';
+import { postService } from '@service/db/post.service';
+import { PostCache } from '@service/redis/post.cache';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
-import { IPostDocument } from '@post/interfaces/post.interface';
-import { PostCache } from '@service/redis/post.cache';
-import { postService } from '@service/db/post.service';
 
 const postCache: PostCache = new PostCache();
 const PAGE_SIZE = 10;
@@ -33,7 +33,7 @@ export class Get {
     const newSkip: number = skip === 0 ? skip : skip + 1;
     let posts: IPostDocument[] = [];
     const cachedPosts: IPostDocument[] = await postCache.getPostsWithImagesFromCache('post', newSkip, limit);
-    posts = cachedPosts.length ? cachedPosts : await postService.getPosts({ imgId: '$ne', gifUrl: '$ne'}, skip, limit, { createdAt: -1 });
+    posts = cachedPosts.length ? cachedPosts : await postService.getPosts({ imgId: '$ne', gifUrl: '$ne' }, skip, limit, { createdAt: -1 });
     res.status(HTTP_STATUS.OK).json({ message: 'All posts with images', posts });
   }
 }

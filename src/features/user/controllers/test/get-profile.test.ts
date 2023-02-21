@@ -1,17 +1,17 @@
-import mongoose from 'mongoose';
-import { Request, Response } from 'express';
-import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
-import { UserCache } from '@service/redis/user.cache';
-import { FollowerCache } from '@service/redis/follower.cache';
-import { existingUser } from '@root/mocks/user.mock';
-import { Get } from '@user/controllers/get-profile';
-import { PostCache } from '@service/redis/post.cache';
-import { postMockData } from '@root/mocks/post.mock';
-import { mockFollowerData } from '@root/mocks/followers.mock';
-import { followerService } from '@service/db/follower.service';
-import { userService } from '@service/db/user.service';
-import { postService } from '@service/db/post.service';
 import { Helpers } from '@global/helpers/helpers';
+import { authMockRequest, authMockResponse, authUserPayload } from '@root/mocks/auth.mock';
+import { mockFollowerData } from '@root/mocks/followers.mock';
+import { postMockData } from '@root/mocks/post.mock';
+import { existingUser } from '@root/mocks/user.mock';
+import { followerService } from '@service/db/follower.service';
+import { postService } from '@service/db/post.service';
+import { userService } from '@service/db/user.service';
+import { FollowerCache } from '@service/redis/follower.cache';
+import { PostCache } from '@service/redis/post.cache';
+import { UserCache } from '@service/redis/user.cache';
+import { Get } from '@user/controllers/get-profile';
+import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
@@ -191,7 +191,10 @@ describe('Get', () => {
       jest.spyOn(UserCache.prototype, 'getRandomUsersFromCache').mockResolvedValue([existingUser]);
 
       await Get.prototype.randomUserSuggestions(req, res);
-      expect(UserCache.prototype.getRandomUsersFromCache).toHaveBeenCalledWith(`${req.currentUser?.userId}`, `${req.currentUser?.username}`);
+      expect(UserCache.prototype.getRandomUsersFromCache).toHaveBeenCalledWith(
+        `${req.currentUser?.userId}`,
+        `${req.currentUser?.username}`
+      );
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith({
         message: 'User suggestions',

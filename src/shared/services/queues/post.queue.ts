@@ -5,7 +5,7 @@ import { postWorker } from '@worker/post.worker';
 class PostQueue extends BaseQueue {
   constructor() {
     super('posts');
-    this.processJob('addPostToDB', 5, postWorker.savePostToDB);
+    this.processJob('addPostToDB', 5, postWorker.addPostToDB);
     this.processJob('deletePostFromDB', 5, postWorker.deletePostFromDB);
     this.processJob('updatePostInDB', 5, postWorker.updatePostInDB);
   }

@@ -1,8 +1,8 @@
+import { IReactionDocument } from '@reaction/interfaces/reaction.interface';
+import { reactionService } from '@service/db/reaction.service';
+import { ReactionCache } from '@service/redis/reaction.cache';
 import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
-import { IReactionDocument } from '@reaction/interfaces/reaction.interface';
-import { ReactionCache } from '@service/redis/reaction.cache';
-import { reactionService } from '@service/db/reaction.service';
 import mongoose from 'mongoose';
 
 const reactionCache: ReactionCache = new ReactionCache();
@@ -23,13 +23,11 @@ export class Get {
     const reactions: [IReactionDocument, number] | [] = cachedReaction.length
       ? cachedReaction
       : await reactionService.getSinglePostReactionByUsername(postId, username);
-    res
-      .status(HTTP_STATUS.OK)
-      .json({
-        message: 'Single post reaction by username',
-        reactions: reactions.length ? reactions[0] : {},
-        count: reactions.length ? reactions[1] : 0
-      });
+    res.status(HTTP_STATUS.OK).json({
+      message: 'Single post reaction by username',
+      reactions: reactions.length ? reactions[0] : {},
+      count: reactions.length ? reactions[1] : 0
+    });
   }
 
   public async reactionsByUsername(req: Request, res: Response): Promise<void> {

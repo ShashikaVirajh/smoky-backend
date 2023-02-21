@@ -1,15 +1,15 @@
-import { Request, Response } from 'express';
-import { PostCache } from '@service/redis/post.cache';
-import HTTP_STATUS from 'http-status-codes';
-import { postQueue } from '@service/queues/post.queue';
-import { socketIOPostObject } from '@socket/post';
-import { joiValidation } from '@global/decorators/joi-validation.decorators';
-import { postSchema, postWithImageSchema } from '@post/schemes/post.schemes';
+import { uploadImage } from '@library/cloudinary.library';
+import { BadRequestError } from '@library/error-handler.library';
+import { joiValidation } from '@library/validation.library';
 import { IPostDocument } from '@post/interfaces/post.interface';
-import { UploadApiResponse } from 'cloudinary';
-import { uploads } from '@global/helpers/cloudinary-upload';
-import { BadRequestError } from '@global/helpers/error-handler';
+import { postSchema, postWithImageSchema } from '@post/schemes/post.schemes';
 import { imageQueue } from '@service/queues/image.queue';
+import { postQueue } from '@service/queues/post.queue';
+import { PostCache } from '@service/redis/post.cache';
+import { socketIOPostObject } from '@socket/post';
+import { UploadApiResponse } from 'cloudinary';
+import { Request, Response } from 'express';
+import HTTP_STATUS from 'http-status-codes';
 
 const postCache: PostCache = new PostCache();
 
@@ -38,11 +38,11 @@ export class Update {
   @joiValidation(postWithImageSchema)
   public async postWithImage(req: Request, res: Response): Promise<void> {
     const { imgId, imgVersion } = req.body;
-    if(imgId && imgVersion) {
+    if (imgId && imgVersion) {
       Update.prototype.updatePostWithImage(req);
     } else {
       const result: UploadApiResponse = await Update.prototype.addImageToExistingPost(req);
-      if(!result.public_id) {
+      if (!result.public_id) {
         throw new BadRequestError(result.message);
       }
     }
@@ -71,7 +71,7 @@ export class Update {
   private async addImageToExistingPost(req: Request): Promise<UploadApiResponse> {
     const { post, bgColor, feelings, privacy, gifUrl, profilePicture, image } = req.body;
     const { postId } = req.params;
-    const result: UploadApiResponse = (await uploads(image)) as UploadApiResponse;
+    const result: UploadApiResponse = (await uploadImage(image)) as UploadApiResponse;
     if (!result?.public_id) {
       return result;
     }

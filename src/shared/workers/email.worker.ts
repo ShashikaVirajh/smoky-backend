@@ -1,15 +1,15 @@
+import { emailTransport } from '@library/email-transport.library';
+import { Logger } from '@library/logger.library';
 import { DoneCallback, Job } from 'bull';
-import Logger from 'bunyan';
-import { config } from '@root/config';
-import { mailTransport } from '@service/emails/mail.transport';
 
-const log: Logger = config.createLogger('emailWorker');
+const log = Logger.create('email-worker');
 
 class EmailWorker {
   async addNotificationEmail(job: Job, done: DoneCallback): Promise<void> {
     try {
       const { template, receiverEmail, subject } = job.data;
-      await mailTransport.sendEmail(receiverEmail, subject, template);
+      await emailTransport.sendEmail(receiverEmail, subject, template);
+
       job.progress(100);
       done(null, job.data);
     } catch (error) {
@@ -19,4 +19,4 @@ class EmailWorker {
   }
 }
 
-export const emailWorker: EmailWorker = new EmailWorker();
+export const emailWorker = new EmailWorker();
